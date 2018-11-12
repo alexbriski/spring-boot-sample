@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: local
+
+server:
+  port: 443
+  compression:
+    enabled: true
+    min-response-size: 2048
+    mime-types: application/json
+
+---
+spring:
+  profiles: local
+  datasource:
+    data: classpath:schema-h2.sql, classpath:data-h2.sql
+    platform: h2
+    username: sa
+    password:
+  jpa:
+    #show_sql: true
+    hibernate:
+      ddl-auto: none
+  
